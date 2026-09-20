@@ -3,15 +3,15 @@ import * as Plugin from "./quartz/plugins"
 
 export default defineConfig({
   configuration: {
-    pageTitle: "Azure Programming Lab Experiments",
-    pageTitleSuffix: " | Azure Labs",
+    pageTitle: "Nisha Azure Lab Experiments",
+    pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "your-github-username.github.io/AzureProgramming",
+    baseUrl: "narasimharao-kandula.github.io/AzureProgramming",
     ignorePatterns: ["private", "templates", ".obsidian", "*.bak"],
     theme: {
       fontOrigin: "googleFonts",
@@ -23,26 +23,26 @@ export default defineConfig({
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
+          light: "#ffffff",
+          lightgray: "#f3f4f6",
+          gray: "#d1d5db",
+          darkgray: "#6b7280",
+          dark: "#1f2937",
           secondary: "#0078d4",
           tertiary: "#00bcf2",
-          highlight: "rgba(0, 120, 212, 0.15)",
-          textHighlight: "#fff23688",
+          highlight: "rgba(0, 120, 212, 0.1)",
+          textHighlight: "#fef08a",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
+          light: "#0f172a",
+          lightgray: "#1e293b",
+          gray: "#475569",
+          darkgray: "#94a3b8",
+          dark: "#f8fafc",
           secondary: "#60a5fa",
           tertiary: "#22d3ee",
-          highlight: "rgba(96, 165, 250, 0.15)",
-          textHighlight: "#b3aa0288",
+          highlight: "rgba(96, 165, 250, 0.1)",
+          textHighlight: "#fde047",
         },
       },
     },
@@ -74,38 +74,26 @@ export default defineConfig({
       Plugin.HardLineBreaks(),
     ],
     filters: [Plugin.RemoveDrafts()],
-    emitters: [
-      Plugin.AliasRedirects(),
-      Plugin.ComponentResources(),
-      Plugin.ContentPage(),
-      Plugin.FolderPage(),
-      Plugin.TagPage(),
-      Plugin.ContentIndex({
-        enableSiteMap: true,
-        enableRSS: true,
-      }),
-      Plugin.Assets(),
-      Plugin.Static(),
-      Plugin.Favicon(),
-      Plugin.NotFoundPage(),
-      Plugin.CNAME(),
-    ],
+emitters: [
+        Plugin.AliasRedirects(),
+        Plugin.ComponentResources(),
+        Plugin.ContentPage(),
+        Plugin.FolderPage(),
+        Plugin.TagPage(),
+        Plugin.ContentIndex({
+          enableSiteMap: true,
+          enableRSS: false,
+        }),
+        Plugin.Assets(),
+        Plugin.Static(),
+        Plugin.ContentProtection(),
+        Plugin.Favicon(),
+        Plugin.NotFoundPage(),
+        Plugin.CNAME(),
+      ],
   },
   layout: {
-    shareButtons: [
-      {
-        id: "twitter",
-        getUrl: (url) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`,
-      },
-      {
-        id: "linkedin",
-        getUrl: (url) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      },
-      {
-        id: "github",
-        getUrl: (url) => `https://github.com/your-github-username/AzureProgramming`,
-      },
-    ],
+    shareButtons: [],
     groups: {
       toolbar: {
         priority: 35,
@@ -124,7 +112,7 @@ export default defineConfig({
       content: {
         left: [
           Plugin.Explorer({
-            title: "Azure Labs",
+            title: "Nisha Azure Lab Experiments",
             folderSortOrder: "alphabetical",
             useSavedState: true,
             mapFn: (node) => {
@@ -133,51 +121,50 @@ export default defineConfig({
               }
               return node
             },
+            filterFn: (node) => {
+              if (node.type === "file" && node.name === "Untitled.md") return false
+              return true
+            },
           }),
           Plugin.Search(),
           Plugin.Darkmode(),
-          Plugin.ReaderMode(),
         ],
-        right: [
-          Plugin.Graph({
-            localGraph: { showTags: false, depth: 2, scale: 1.2, repelForce: 0.5 },
-            globalGraph: { showTags: false, depth: 2, scale: 1.2, repelForce: 0.5 },
-          }),
-          Plugin.Backlinks(),
-        ],
+        right: [],
       },
       folder: {
         left: [
           Plugin.Explorer({
-            title: "Azure Labs",
+            title: "Nisha Azure Lab Experiments",
             folderSortOrder: "alphabetical",
             useSavedState: true,
+            filterFn: (node) => {
+              if (node.type === "file" && node.name === "Untitled.md") return false
+              return true
+            },
           }),
           Plugin.Search(),
           Plugin.Darkmode(),
-          Plugin.ReaderMode(),
         ],
         right: [],
       },
       tag: {
         left: [
           Plugin.Explorer({
-            title: "Azure Labs",
+            title: "Nisha Azure Lab Experiments",
             folderSortOrder: "alphabetical",
             useSavedState: true,
           }),
           Plugin.Search(),
           Plugin.Darkmode(),
-          Plugin.ReaderMode(),
         ],
         right: [],
       },
       canvas: {
-        left: [Plugin.Explorer(), Plugin.Search(), Plugin.Darkmode(), Plugin.ReaderMode()],
+        left: [Plugin.Explorer(), Plugin.Search(), Plugin.Darkmode()],
         right: [],
       },
       bases: {
-        left: [Plugin.Explorer(), Plugin.Search(), Plugin.Darkmode(), Plugin.ReaderMode()],
+        left: [Plugin.Explorer(), Plugin.Search(), Plugin.Darkmode()],
         right: [],
       },
     },
