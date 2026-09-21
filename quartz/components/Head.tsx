@@ -91,7 +91,51 @@ export default (() => {
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
+        <meta name="keywords" content="Azure, Cloud Computing, Blob Storage, Queue Storage, Table Storage, File Storage, Azure VM, Microsoft Azure, Cloud Tutorials, Azure Labs, Azure Programming" />
+        <meta name="author" content="Nisha" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#0078d4" />
         <meta name="generator" content="Quartz" />
+        <link rel="canonical" href={socialUrl} />
+        <link rel="sitemap" href={`${cfg.baseUrl}/sitemap.xml`} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": fileData.slug === "index" ? "WebSite" : "Article",
+              name: title,
+              description: description,
+              url: socialUrl,
+              publisher: {
+                "@type": "Person",
+                name: "Nisha",
+              },
+              author: {
+                "@type": "Person",
+                name: "Nisha",
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": socialUrl,
+              },
+              datePublished: fileData.frontmatter?.date?.toISOString?.() ?? undefined,
+              dateModified: fileData.frontmatter?.modified?.toISOString?.() ?? undefined,
+              potentialAction:
+                fileData.slug === "index"
+                  ? {
+                      "@type": "SearchAction",
+                      target: {
+                        "@type": "EntryPoint",
+                        urlTemplate: `${cfg.baseUrl}/?q={search_term_string}`,
+                      },
+                      "query-input": "required name=search_term_string",
+                    }
+                  : undefined,
+            }),
+          }}
+        />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js

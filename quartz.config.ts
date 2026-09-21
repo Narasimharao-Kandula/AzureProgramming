@@ -4,14 +4,14 @@ import * as Plugin from "./quartz/plugins"
 export default defineConfig({
   configuration: {
     pageTitle: "Nisha Azure Lab Experiments",
-    pageTitleSuffix: "",
+    pageTitleSuffix: " | Azure Programming Labs",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "narasimharao-kandula.github.io/AzureProgramming",
+    baseUrl: "https://narasimharao-kandula.github.io/AzureProgramming",
     ignorePatterns: ["private", "templates", ".obsidian", "*.bak"],
     theme: {
       fontOrigin: "googleFonts",
@@ -74,26 +74,36 @@ export default defineConfig({
       Plugin.HardLineBreaks(),
     ],
     filters: [Plugin.RemoveDrafts()],
-emitters: [
-        Plugin.AliasRedirects(),
-        Plugin.ComponentResources(),
-        Plugin.ContentPage(),
-        Plugin.FolderPage(),
-        Plugin.TagPage(),
-        Plugin.ContentIndex({
-          enableSiteMap: true,
-          enableRSS: false,
-        }),
-        Plugin.Assets(),
-        Plugin.Static(),
-        Plugin.ContentProtection(),
-        Plugin.Favicon(),
-        Plugin.NotFoundPage(),
-        Plugin.CNAME(),
-      ],
+    emitters: [
+      Plugin.AliasRedirects(),
+      Plugin.ComponentResources(),
+      Plugin.ContentPage(),
+      Plugin.FolderPage(),
+      Plugin.TagPage(),
+      Plugin.ContentIndex({
+        enableSiteMap: true,
+        enableRSS: true,
+      }),
+      Plugin.Assets(),
+      Plugin.Static(),
+      Plugin.ContentProtection(),
+      Plugin.Favicon(),
+      Plugin.NotFoundPage(),
+      Plugin.CNAME(),
+      Plugin.OgImage(),
+    ],
   },
   layout: {
-    shareButtons: [],
+    shareButtons: [
+      {
+        id: "twitter",
+        getUrl: (url) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Nisha Azure Lab Experiments - Azure Programming Tutorials")}`,
+      },
+      {
+        id: "linkedin",
+        getUrl: (url) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      },
+    ],
     groups: {
       toolbar: {
         priority: 35,
