@@ -23,23 +23,23 @@ configuration:
     colors:
       lightMode:
         light: "#ffffff"
-        lightgray: "#f3f4f6"
-        gray: "#d1d5db"
-        darkgray: "#6b7280"
-        dark: "#1f2937"
-        secondary: "#0078d4"
-        tertiary: "#00bcf2"
-        highlight: rgba(0, 120, 212, 0.1)
-        textHighlight: "#fef08a"
+        lightgray: "#eef2f7"
+        gray: "#8a97ac"
+        darkgray: "#3f4a5d"
+        dark: "#14181f"
+        secondary: "#0a63c0"
+        tertiary: "#0e7aa8"
+        highlight: rgba(10, 99, 192, 0.1)
+        textHighlight: "#fde68a"
       darkMode:
         light: "#0f172a"
-        lightgray: "#1e293b"
-        gray: "#475569"
-        darkgray: "#94a3b8"
-        dark: "#f8fafc"
-        secondary: "#60a5fa"
-        tertiary: "#22d3ee"
-        highlight: rgba(96, 165, 250, 0.1)
+        lightgray: "#1b2540"
+        gray: "#3a4665"
+        darkgray: "#a4b1c8"
+        dark: "#f4f6fb"
+        secondary: "#7db8ff"
+        tertiary: "#38bdf8"
+        highlight: rgba(125, 184, 255, 0.14)
         textHighlight: "#fde047"
 plugins:
   - source: "@quartz-community/created-modified-date"
@@ -62,7 +62,7 @@ plugins:
   - source: "@quartz-community/obsidian-flavored-markdown"
     enabled: true
     options:
-      enableInHtmlEmbed: false
+      enableInHtmlEmbed: true
       enableCheckbox: true
     order: 30
   - source: "@quartz-community/github-flavored-markdown"
